@@ -28,11 +28,15 @@ public class Principal {
                 excluirProduto();
             }else if(opc == 5){
                 DBManager.CloseConnection();
+            }else{
+                System.out.println("Opção Inválida");
             }
 
         }while(opc !=5);
+
     }
     public static void verProduto(){
+
         DBManager.getProduto();
     }
     public static void adicionarProduto(){
@@ -46,7 +50,10 @@ public class Principal {
         System.out.println("Preço do Produto");
         String preco = scanner.nextLine();
 
-        DBManager.adicionarProduto(codigo,descricao,preco);
+        System.out.println("Tipo de Grupo: \nDigite\n 1- PASTILHAS \n 2- AMORTECEDOR \n 3- BATERIAS");
+        int idgrupo = scanner.nextInt();
+
+        DBManager.adicionarProduto(codigo,descricao,preco,idgrupo);
     }
     public static void editarProduto(){
         DBManager.getProduto();
@@ -64,7 +71,10 @@ public class Principal {
         System.out.println("Novo preço do Produto");
         String preco = scanner.nextLine();
 
-        DBManager.atualizarProduto(id_produto,codigo,descricao,preco);
+        System.out.println("Tipo de Grupo: \nDigite\n 1- PASTILHAS \n 2- AMORTECEDOR \n 3- BATERIAS");
+        int idgrupo = scanner.nextInt();
+
+        DBManager.atualizarProduto(id_produto,codigo,descricao,preco,idgrupo);
 
     }
     public static void excluirProduto(){
